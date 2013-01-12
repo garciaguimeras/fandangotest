@@ -16,4 +16,4 @@ def canvas(request):
     fbmsg = "TestApp acaba de hacer una publicacion en tu muro"
     graph.post(path=fbpath, message=fbmsg)
     
-    return HttpResponse("Hello user: id {0} -- {1} {2}".format(user.facebook_id, user.first_name, user.last_name))
+    return HttpResponse("Hello user: id {0} -- {1} {2} -- access token: {3}".format(user.facebook_id, user.first_name, user.last_name, access_token))
