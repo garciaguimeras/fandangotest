@@ -5,4 +5,6 @@ from fandjango.decorators import facebook_authorization_required
 
 @facebook_authorization_required
 def canvas(request):
-    return HttpResponse('Hello user: , %s.' % request.facebook.user.first_name)
+    fb = request.facebook
+    user = fb.user
+    return HttpResponse("Hello user: id {0} -- {1} {2} -- {3}".format(user.id, user.first_name, user.last_name, user.language))
