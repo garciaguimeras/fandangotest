@@ -12,8 +12,8 @@ def canvas(request):
     access_token = user.oauth_token.token
 
     graph = GraphAPI(access_token)
-    og_path = "{0}/feed".format(user.facebook_id)
-    message = "TestApp acaba de hacer una publicacion en tu muro"
-    graph.post(path=og_path, og_msg=message)
+    fbpath = "{0}/feed".format(user.facebook_id)
+    fbmsg = "TestApp acaba de hacer una publicacion en tu muro"
+    graph.post(path=fbpath, message=fbmsg)
     
     return HttpResponse("Hello user: id {0} -- {1} {2}".format(user.facebook_id, user.first_name, user.last_name))
