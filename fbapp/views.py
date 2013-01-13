@@ -25,8 +25,8 @@ def post(request):
     from fandjango.models import User
     users = User.objects.all()
     for user in users:
-        if user.oauth_token.expired():
-            user.oauth_token.extend()
+        #if user.oauth_token.expired():
+        user.oauth_token.extend()
         _post_message_on_wall(user, "TestApp ha publicado algo en su muro...")
         
     return HttpResponse("Se ha publicado en el muro de {0} usuarios registrados.".format(len(users)))
