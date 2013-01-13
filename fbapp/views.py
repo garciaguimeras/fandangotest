@@ -23,7 +23,7 @@ def canvas(request):
 def post(request):
     
     from fandjango.models import User
-    users = User.objects.get()
+    users = User.objects.all()
     for user in users:
         if user.oauth_token.expired():
             user.oauth_token.extend()
